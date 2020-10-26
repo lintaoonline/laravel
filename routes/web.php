@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,3 +24,27 @@ Route::get('test', function () {
 Route::get('app/{id}/{name?}', function ($id, $name) {
     return $id . $name;
 })->where(['id' => '[0-9+]', 'name' => '[A-Za-z]+']);
+
+// 路由别名
+Route::get('user/center', ['as' => 'center', function () {
+    return route('center');
+}]);
+
+// 路由群组
+Route::group(['prefix' => 'member'], function () {
+    Route::get('user/center', ['as' => 'center', function () {
+        return route('center');
+    }]);
+
+    Route::get('user/info', function () {
+        return 'info';
+    });
+});
+
+// Route::get('/info', 'UserController@info');
+// https://learnku.com/docs/laravel/8.x/releases/9351#d99737
+Route::get('/info/{id?}', [UserController::class, 'info'])->where(['id'=>'[0-9]+']);
+// 路由视图
+Route::get('view', function () {
+    return view('welcome');
+});
