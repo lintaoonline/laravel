@@ -7,7 +7,6 @@
  */
 
 namespace App\Http\Controllers;
-
 use App\Http\Controllers\Controller;
 
 class UserController extends Controller
@@ -15,7 +14,11 @@ class UserController extends Controller
 
     public function info($id = 1)
     {
-        return 'user-info' . $id;
+        // return 'user-info' . $id;
+        return view('user/info', [
+            'name' => 'lint',
+            'id' => $id,
+        ]);
     }
 }
 
