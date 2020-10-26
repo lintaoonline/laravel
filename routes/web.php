@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StudentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,7 +45,12 @@ Route::group(['prefix' => 'member'], function () {
 
 // Route::get('/info', 'UserController@info');
 // https://learnku.com/docs/laravel/8.x/releases/9351#d99737
-Route::get('/info/{id?}', [UserController::class, 'info'])->where(['id'=>'[0-9]+']);
+Route::get('/info/{id?}', [UserController::class, 'info'])->where(['id' => '[0-9]+']);
+
+Route::get('/student/{id?}', [StudentController::class, 'info'])->where(['id' => '[0-9]+']);
+
+Route::get('/query', [StudentController::class, 'query']);
+
 // 路由视图
 Route::get('view', function () {
     return view('welcome');
