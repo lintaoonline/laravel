@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Model\Student;
 use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
@@ -85,6 +86,60 @@ class StudentController extends Controller
         // print_r($students);
 
 
+    }
+
+    public function orm()
+    {
+        // $students = Student::all();
+        // $students = Student::find(1);
+        // $students = Student::findOrFail(11111);
+        // $students = Student::where('id','>=',1001)->get(['id','name','age']);
+        // $num = Student::count();
+
+        // 模型新增
+        // $students = new Student();
+        // $students->name = 'hh';
+        // $students->age = 18;
+        // $bool = $students->save();
+        // dd($students);
+
+        // create
+        // Student::create(
+        //     ['name' => 'hasds', 'age' => '38']
+        // );
+
+        // 查找，没有则新增
+        // $students = Student::firstOrCreate(
+        //     ['name' => 'lintts', 'age' => 36]
+        // );
+
+        // 查找，没有则建立新的实例 需要保存调用save即可
+        // $students = Student::firstOrNew(
+        //     ['name' => 'lintts', 'age' => 46]
+        // );
+        // $bool = $students->save();
+
+        // update
+        // $student = Student::find(1);
+        // $student->name = 'lint';
+        // $bool = $student->save();
+        // dd($bool);
+
+        // $num = Student::where('id', '=', 1)->update(['age' => 11]);
+        // dd($num);
+
+        // del
+        // 模型删除
+        // $student = Student::find(1019);
+        // $bool = $student->delete();
+        // dd($bool);
+
+        // 主键删除
+        // $num = Student::destroy(1018);
+        // $num = Student::destroy(1016,1017);
+        // $num = Student::destroy([1014, 1015]);
+
+        $num = Student::where('id','>',1012)->delete();
     }
 }
 
