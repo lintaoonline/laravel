@@ -51,6 +51,7 @@ Route::get('/student/{id?}', [StudentController::class, 'info'])->where(['id' =>
 
 Route::get('/query', [StudentController::class, 'query']);
 Route::get('/orm', [StudentController::class, 'orm']);
+Route::get('user', [UserController::class, 'user']);
 
 // 路由视图
 Route::get('view', function () {
