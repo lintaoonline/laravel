@@ -50,6 +50,7 @@ Route::get('/info/{id?}', [UserController::class, 'info'])->where(['id' => '[0-9
 Route::get('/student/{id?}', [StudentController::class, 'info'])->where(['id' => '[0-9]+']);
 
 Route::get('/query', [StudentController::class, 'query']);
+Route::get('/orm', [StudentController::class, 'orm']);
 
 // 路由视图
 Route::get('view', function () {
