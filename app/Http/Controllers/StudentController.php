@@ -134,7 +134,7 @@ class StudentController extends Controller
         // $bool = $student->delete();
         // dd($bool);
 
-        // 主键删除
+        // 主键删除.
         // $num = Student::destroy(1018);
         // $num = Student::destroy(1016,1017);
         // $num = Student::destroy([1014, 1015]);
