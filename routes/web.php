@@ -53,6 +53,26 @@ Route::get('/query', [StudentController::class, 'query']);
 Route::get('/orm', [StudentController::class, 'orm']);
 Route::get('user', [UserController::class, 'user']);
 
+
+Route::group(['middleware' => ['web']], function () {
+    Route::get('session1', [UserController::class, 'session1']);
+    Route::get('session2', [UserController::class, 'session2']);
+});
+
+Route::any('response', [UserController::class, 'response']);
+
+Route::any('activity0', [UserController::class, 'activity0']);
+
+
+
+Route::group(['middleware' => ['activity']], function () {
+    Route::any('activity1', [UserController::class, 'activity1']);
+    Route::any('activity2', [UserController::class, 'activity2']);
+});
+
+
+Route::any('queue', [UserController::class, 'queue']);
+
 // 路由视图
 Route::get('view', function () {
     return view('welcome');
